@@ -1,5 +1,7 @@
 const mysql = require('../db')
 
+
+
 const getProducts = (req,res)=>{
     
     mysql.query('SELECT product.id,product.name,product.url_image,product.price,product.discount, category.name as category_name FROM `product` INNER JOIN category ON product.category = category.id ORDER BY category.id',(error,result)=>{
@@ -63,6 +65,7 @@ const orderedProducts = (req,res)=>{
         res.status(500).json({msg:"Internal Problem"})
     }
 }
+
 
 module.exports = {
     getProducts,
